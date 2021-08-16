@@ -1,5 +1,8 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+});
 
-    $(".button-collapse").sideNav();
-    // $("select").material_select();
+$(document).ready(function() {
+    $('.sidenav').sidenav();
 });

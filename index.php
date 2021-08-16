@@ -46,9 +46,9 @@ if(in_array($page.'.func.php',$pages_functions)){
 
 
       <!--JavaScript at end of body for optimized loading-->
-      <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script type="text/javascript" src="js/materialize.js"></script>
-      <!-- <script type="text/javascript" src="js/script.js"></script> -->
+      <script type="text/javascript" src="js/script.js"></script>
     </body>
   </html>
 
