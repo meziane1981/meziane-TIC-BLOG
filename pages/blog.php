@@ -14,7 +14,7 @@ foreach($posts as $post){
                     <?= substr(nl2br($post->content),0,1000) ?>...
                 </div>
                 <div class="col s12 m6 l4">
-                <img  src="img/posts/<?=$post->image?>" class="materialboxed" data-caption="A picture"  alt="<?=$post->title ?>"/>
+                <img  src="img/posts/<?=$post->image?>" class="materialboxed responsive-img" data-caption="A picture"  alt="<?=$post->title ?>"/>
                 <br/><br/>
                     <a class="btn light-blue waves-effect waves-light" href="index.php?page=post&id=<?= $post->id ?>">Lire l'article complet</a>
                 </div>
