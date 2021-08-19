@@ -18,7 +18,22 @@
                 <?php      
             }
             ?>
-            <hr>
+            <hr>   
+                    <h4>Commentaires:</h4>
+                    <?php
+                $responses = get_comments();
+                if($responses != false){
+                    foreach($responses as $response){
+                        ?>
+                            <blockquote>
+                                <strong><?= $response->name ?> (<?= date("d/m/Y", strtotime($response->date)) ?>)</strong>
+                                <p><?= nl2br($response->comment); ?></p>
+                            </blockquote>
+                        <?php
+                    }
+                }else echo "Aucun commentaire n'a été publié... Soyez le premier!";
+            ?>
+
                     <h4>Commenter:</h4>
                     <?php
                         if(isset($_POST['submit'])){
