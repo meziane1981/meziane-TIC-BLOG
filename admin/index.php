@@ -1,5 +1,5 @@
 <?php
-require '../functions/main-functions.php';
+require ('../functions/main-functions.php');
 
 $pages = scandir('pages/');
 if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -12,9 +12,9 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
     $page = "dashboard";
 }
 
-$pages_functions = scandir('functionss/');
+$pages_functions = scandir('functions/');
 if(in_array($page.'.func.php',$pages_functions)){
-    require '.admin/functionss/'.$page.'.func.php';
+    require ("functions/".$page.".func.php");
 }
 
 ?>
