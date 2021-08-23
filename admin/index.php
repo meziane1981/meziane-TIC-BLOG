@@ -12,55 +12,53 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
     $page = "dashboard";
 }
 
-$pages_functions = scandir('functions/');
+$pages_functions = scandir('functionss/');
 if(in_array($page.'.func.php',$pages_functions)){
-    require '.functions/'.$page.'.func.php';
+    require '.admin/functionss/'.$page.'.func.php';
 }
+
 ?>
-  
-  
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
-      <title>Blog MEZIANE DEV | Administration</title>
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-
-    <body>
-      
-            <?php
-           if($page != 'login' && $page != 'new' && !isset($_SESSION['admin'])){
-                header("Location: index.php?page=login");
-            }
-            require "body/topbar.php";
-            ?>
-            <div class="container">
-            <?php
-                require 'pages/'.$page.'.php';
-            ?>
-            </div>
 
 
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
+    <title>MEZIANE DEV | Administration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
 
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script type="text/javascript" src="../js/materialize.js"></script>
-      <script type="text/javascript" src="../js/script.js"></script>
-      <?php
-            $pages_js = scandir('js/');
-            if(in_array($page.'.func.js',$pages_js)){
-              ?>
-                <script type="text/javascript" src="js/<?= $page ?>.func.js"></script>
-              <?php
-            }
-      ?>
+<body>
 
-    
-    </body>
-  </html>
+<?php
 
+if($page != 'login' && $page != 'new' && !isset($_SESSION['admin'])){
+    header("Location:index.php?page=login");
+}
+
+require "body/topbar.php";
+?>
+<div class="container">
+    <?php
+    require 'pages/'.$page.'.php';
+    ?>
+</div>
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/materialize.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
+<?php
+$pages_js = scandir('js/');
+if(in_array($page.'.func.js',$pages_js)){
+    ?>
+    <script type="text/javascript" src="js/<?= $page ?>.func.js"></script>
+<?php
+}
+
+?>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
   <?php
-require 'functions/main-functions.php';
+require_once 'functions/main-functions.php';
 $pages = scandir('pages/');
 if(isset($_GET['page']) && !empty($_GET['page'])){
     if(in_array($_GET['page'].'.php',$pages)){
@@ -13,7 +13,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 
 $pages_functions = scandir('functions/');
 if(in_array($page.'.func.php',$pages_functions)){
-    require 'functions/'.$page.'.func.php';
+    require_once '.functions/'.$page.'.func.php';
 }
 ?>
   
@@ -33,11 +33,11 @@ if(in_array($page.'.func.php',$pages_functions)){
     <body>
       
             <?php
-            require "body/topbar.php";
+            require_once "body/topbar.php";
             ?>
             <div class="container">
             <?php
-                require 'pages/'.$page.'.php';
+                require_once 'pages/'.$page.'.php';
             ?>
             </div>
 
