@@ -14,8 +14,9 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 
 $pages_functions = scandir('functions/');
 if(in_array($page.'.func.php',$pages_functions)){
-    require ("functions/".$page.".func.php");
-}
+//     require "./functions/$page.func.php";
+require ('./functions/'.$page.'.func.php');
+ }
 
 ?>
 
@@ -41,7 +42,7 @@ require "body/topbar.php";
 ?>
 <div class="container">
     <?php
-    require 'pages/'.$page.'.php';
+    require ('pages/'.$page.'.php');
     ?>
 </div>
 
