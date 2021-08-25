@@ -1,18 +1,17 @@
 <?php
-
-
-function is_admin($email,$password)
-{
+ 
+// comparaison infos entrées et bdd pour connexion admin
+function is_admin($email, $password): bool {
     global $db;
-    $a = [
-        'email'     =>  $email,
-        'password'  => sha1($password)
-        ];
-    $sql = "SELECT * FROM admins WHERE email = :email AND password = :password";
-    $req = $db->prepare($sql);
-    $req->execute($a);
-    $exist = $req->rowCount($sql);
-    return $exist;
+    $req = $db->prepare("SELECT * FROM admins WHERE `email` = ? AND `role` = 'admin'");
+    $req->execute([$email]);
+
+    $result = $req->fetch();
+    if ($result) {
+        return password_verify($password, $result['password']);
+    } else {
+        return false;
+    }
 }
 
 ?>
