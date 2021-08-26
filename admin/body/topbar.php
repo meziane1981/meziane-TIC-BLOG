@@ -6,11 +6,14 @@
          
             <ul class="right hide-on-med-and-down">
                 <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="index.php?page=dashboard"><i class="material-icons">dashboard</i></a></li>
-                            </ul>
+                <li><a href="../index.php?page=home">Quitter</a></li>
+                <li><a href="index.php?page=logout">Déconnexion</a></li>                 
+            </ul>
 
             <ul id="slide-out" class="sidenav sidenav">
-                <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="index.php?page=dashboard"><i class="material-icons">dashboard</i></a></li>
-              
+                <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="index.php?page=dashboard">Tableau de bord</a></li>
+                <li><a href="../index.php?page=home">Quitter</a></li>
+                <li><a href="index.php?page=logout">Déconnexion</a></li>   
             </ul>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
