@@ -45,15 +45,16 @@
     ?>
 
         <table>
-            <thead>
+        <thead>
                 <tr>
                     <th>Article</th>
                     <th>Commentaire</th>
                     <th>Actions</th>
                 </tr>
-           </thead>
+        </thead>
         <tbody>
              <?php
+             if(!empty($comments)) {
             foreach($comments as $comment){
              ?>
                 <tr id="commentaire_<?= $comment->id ?>">
@@ -80,26 +81,32 @@
                         <p><?= nl2br($comment->comment) ?></p>
 
                         </div>  
-                    <div class="modal-footer">
-                    <a href="#" id="<?= $comment->id ?>"
-                            class="modal-action modal-close waves-effect waves-red btn-flat delete_comment"><i
-                                class="material-icons">delete</i></a>
-                    <a href="#" id="<?= $comment->id ?>"
-                            class="modal-action modal-close waves-effect waves-green btn-flat see_comment"><i
-                                class="material-icons">done</i></a>
-                    </div>
+                        <div class="modal-footer">
+                            <a href="#" id="<?= $comment->id ?>"
+                                    class="modal-action modal-close waves-effect waves-red btn-flat delete_comment"><i
+                                        class="material-icons">delete</i></a>
+                            <a href="#" id="<?= $comment->id ?>"
+                                    class="modal-action modal-close waves-effect waves-green btn-flat see_comment"><i
+                                        class="material-icons">done</i></a>
+                        </div>
+                   </div>
 
-
-                </div>
-      
                    </td>    
                 </tr>
-                <?php
+            <?php
             }
-                ?>   
+        }else{
+            ?>
+                <tr>
+                    <td></td>
+                    <td><center>Aucun commentaire à valider</center></td>
+                </tr>
+            <?php
+        }
+            ?>   
         </tbody>
         
-        </table>
+</table>
 
 
 
