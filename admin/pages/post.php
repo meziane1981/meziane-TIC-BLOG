@@ -1,10 +1,10 @@
 <?php
 
-    if(admin()!=1){
-        header("Location:index.php?page=dashboard");
-    }
+    // if(admin()!=1){
+    //     header("Location:index.php?page=dashboard");
+    // }
 
-
+//rediriger lutilisateur vers la page error en cas ya pas d'article
     $post = get_post();
     if($post == false){
         header("Location:index.php?page=error");
@@ -59,7 +59,7 @@
     ?>
 
 
-    <form method="post">
+<form method="post">
         <div class="row">
             <div class="input-field col s12">
                 <input type="text" name="title" id="title" value="<?= $post->title ?>"/>
