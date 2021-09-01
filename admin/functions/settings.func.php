@@ -10,3 +10,7 @@ function email_taken($email){
 
     return $free;
 }
+function token($length){
+    $chars = "azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN0123456789";
+    return substr(str_shuffle(str_repeat($chars,$length)),0,$length);
+}
