@@ -20,15 +20,35 @@
                 if(empty($name) || empty($email) || empty($email_again)){
                     $errors['empty'] = "Veuillez remplier tous les champs";
                 }
-
+                     //correspondance de l'adresse email
                 if($email != $email_again){
                     $errors['different'] = "Les adresses email ne correspondent pas";
                 }
-
+                        
                 if(email_taken($email)){
                     $errors['taken'] = "L'adresse email est déjà assignée à un modérateur";
                 }
+                if(!empty($errors)){
+                    ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error."<br/>";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                    //ajoute le modo ds la bdd
+                }else{
+                    add_modo($name,$email,$role,$token);
+                }
+            }
+
+
         ?>
+    
         <form method="post">
             <div class="row">
                 <div class="input-field col s12">
