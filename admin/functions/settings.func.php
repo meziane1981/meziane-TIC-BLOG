@@ -17,7 +17,7 @@ function token($length){
 }
 
 
-
+// requete pour ajoute le modo
 function add_modo($name,$email,$role,$token){
     global $db;
 
@@ -27,7 +27,7 @@ function add_modo($name,$email,$role,$token){
         'token'     =>  $token,
         'role'      =>  $role
     ];
-// requete pour ajoute le modo
+
     $sql = "INSERT INTO admins(name,email,token,role) VALUES(:name,:email,:token,:role)";
     $req = $db->prepare($sql);
     $req->execute($m);
@@ -54,4 +54,18 @@ function add_modo($name,$email,$role,$token){
 
     mail($email,$subject,$message,$header);
 
+}
+
+//requête pour récupérer l'ensemble des administrateurs et  modérateurs
+function get_modos(){
+    global $db;
+    $req = $db->query("
+        SELECT * FROM admins
+    ");
+
+    $results = [];
+    while($rows = $req->fetchObject()){
+        $results[] = $rows;
+    }
+    return $results;
 }
