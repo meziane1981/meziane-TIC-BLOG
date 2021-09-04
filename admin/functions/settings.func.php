@@ -39,7 +39,7 @@ function add_modo($name,$email,$role,$token){
                 <meta charset="UTF-8">
             </head>
             <body>
-                Voici votre identifiant et code unique à insérer sur <a href="http://GitHub/meziane-TIC-BLOG/admin/index.php?page=new">cette page</a>:
+                Voici votre identifiant et code unique à insérer sur <a href="http://localhost/GitHub/meziane-TIC-BLOG/admin/index.php?page=new">cette page</a>:
                 <br/>Identifiant: '.$email.'
                 <br/>Mot de passe: '.$token.'
                 <br/>Vous êtes: '.$role.'
