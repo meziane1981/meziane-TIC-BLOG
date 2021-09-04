@@ -1,4 +1,9 @@
- 
+    <?php
+
+    if(hasnt_password() == 1){
+        header("Location:index.php?page=password");
+    }
+    ?>
         <h2>Tableau de bord</h2>
         <div class="row">
 

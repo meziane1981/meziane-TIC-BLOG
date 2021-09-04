@@ -1,9 +1,8 @@
 <?php
  
-// comparaison infos entrées et bdd pour connexion admin
 function is_admin($email, $password): bool {
     global $db;
-    $req = $db->prepare("SELECT * FROM admins WHERE `email` = ? AND `role` = 'admin'");
+    $req = $db->prepare("SELECT * FROM admins WHERE `email` = ? AND `role` = 'admin' || `role` = 'modo' ");
     $req->execute([$email]);
 
     $result = $req->fetch();
@@ -13,6 +12,8 @@ function is_admin($email, $password): bool {
         return false;
     }
 }
+
+
 
 ?>
 

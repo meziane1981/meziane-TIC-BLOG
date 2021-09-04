@@ -1,37 +1,43 @@
-<h2>Paramètres</h2>
-<div class="row">
-    <div class="col m6 s12">
-    <h4>Modérateurs</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Email</th>
-                    <th>Rôle</th>
-                    <th>Validé</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-                $modos = get_modos();
-                foreach($modos as $modo){
-                    ?>
+<!-- pour le modo pour ne pas acceder a des fonctionnelité de admin  -->
+    <?php 
+            if(admin()!=1){
+                header("Location:index.php?page=dashboard");
+            }
+    ?>
+        <h2>Paramètres</h2>
+        <div class="row">
+            <div class="col m6 s12">
+            <h4>Modérateurs</h4>
+                <table>
+                    <thead>
                         <tr>
-                            <td><?= $modo->name ?></td>
-                            <td><?= $modo->email ?></td>
-                            <td><?= $modo->role ?></td>
-                            <td><i class="material-icons"><?php echo (!empty($modo->password)) ? "verified_user" : "av_timer" ?></i></td>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Validé</th>
                         </tr>
+                    </thead>
+                    <tbody>
                     <?php
-                }
-            ?>
-            </tbody>
-        </table>
+                        $modos = get_modos();
+                        foreach($modos as $modo){
+                            ?>
+                                <tr>
+                                    <td><?= $modo->name ?></td>
+                                    <td><?= $modo->email ?></td>
+                                    <td><?= $modo->role ?></td>
+                                    <td><i class="material-icons"><?php echo (!empty($modo->password)) ? "verified_user" : "av_timer" ?></i></td>
+                                </tr>
+                            <?php
+                        }
+                    ?>
+                    </tbody>
+                </table>
 
 
-    </div>
-    <div class="col m6 s12">
-        <h4>Ajouter un modo</h4>
+            </div>
+            <div class="col m6 s12">
+                <h4>Ajouter un modo</h4>
 
 
         <?php

@@ -1,15 +1,15 @@
 <?php
+//  pour le modo pour ne pas acceder a des fonctionnelité de admin
 
-    // if(admin()!=1){
-    //     header("Location:index.php?page=dashboard");
-    // }
+        if(admin()!=1){
+            header("Location:index.php?page=dashboard");
+        }
 
 //rediriger lutilisateur vers la page error en cas ya pas d'article
-    $post = get_post();
-    if($post == false){
-        header("Location:index.php?page=error");
-    }
-
+        $post = get_post();
+        if($post == false){
+            header("Location:index.php?page=error");
+        }
 ?>
 </div>
     <div class="parallax-container">

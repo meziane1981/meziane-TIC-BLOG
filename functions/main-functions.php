@@ -15,15 +15,21 @@
         die("Une erreur est survenue lors de la connexion à la base de données");
     }
 
-/*
+
 function admin(){
+   // modérateur ou non 
+   //oui 
+   //Droit d'accéder  = 1 
+   //non  //pas de session 
+    // pas le droit = 0 
     if(isset($_SESSION['admin'])){
+        // connexion de la bdd
         global $db;
         $a = [
             'email'     =>  $_SESSION['admin'],
             'role'      =>  'admin'
         ];
-
+        // requete 
         $sql = "SELECT * FROM admins WHERE email=:email AND role=:role";
         $req = $db->prepare($sql);
         $req->execute($a);
@@ -35,6 +41,7 @@ function admin(){
     }
 }
 
+// pour le mot de passe si en trouve au non 
 function hasnt_password(){
     global $db;
 
@@ -43,5 +50,4 @@ function hasnt_password(){
     $req->execute();
     $exist = $req->rowCount($sql);
     return $exist;
-}
-*/
+} 
