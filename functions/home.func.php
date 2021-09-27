@@ -1,9 +1,9 @@
 <?php
-
+// la fonction pour récupérer les different articles
 function get_posts(){
 
     global $db;
-
+// la requête sql pour récupérer et stocker les articles au bdd
     $req = $db->query("
     SELECT      posts.id,
                 posts.title,

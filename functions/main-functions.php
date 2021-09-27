@@ -2,13 +2,13 @@
 
     session_start();
 
-    //A modifier en fonction de vos indentifiants de base de donnée
+  //définir les variables de la base de donnée
     $dbhost = 'localhost';
-    $dbname = 'blog';//Ne doit pas être modifié si vous avez appelé votre bdd "blog"
+    $dbname = 'blog';
     $dbuser = 'root';
     $dbpswd = '';
 
-    //on se va connecter a la base
+    //connection à la base de donnée
     try{
         $db = new PDO('mysql:host='.$dbhost.';dbname='.$dbname,$dbuser,$dbpswd,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8', PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
     }catch(PDOexception $e){

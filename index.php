@@ -1,6 +1,7 @@
 <?php
+// inclure la requête de la connection de base de données 
     include 'functions/main-functions.php';
-
+// récupérer les pages par la fonction "scandir qui permet de scanner les pages 
     $pages = scandir('pages/');
     if(isset($_GET['page']) && !empty($_GET['page'])){
         if(in_array($_GET['page'].'.php',$pages)){
@@ -11,7 +12,7 @@
     }else{
         $page = "home";
     }
-
+// crée la variables pages_functions
     $pages_functions = scandir('functions/');
     if(in_array($page.'.func.php',$pages_functions)){
         include 'functions/'.$page.'.func.php';
@@ -31,10 +32,12 @@
 
     <body>
         <?php
+        // inclure le topbar
             include "body/topbar.php";
         ?>
         <div class="container">
             <?php
+            //include les pages 
                 include 'pages/'.$page.'.php';
             ?>
         </div>
