@@ -23,7 +23,7 @@
                     <li><a href="index.php?page=logout">Déconnexion</a></li> 
                                 
                     </ul>
-
+                          <!-- Menu burger -->
                     <ul id="slide-out" class="sidenav sidenav">
                         <li class="<?php echo ($page=="dashboard")?"active" : ""; ?>"><a href="index.php?page=dashboard">Tableau de bord</a></li>
                         <?php 

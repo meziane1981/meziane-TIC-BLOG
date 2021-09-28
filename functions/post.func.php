@@ -1,8 +1,8 @@
     <?php
-
+// fonction pour récupérer une seul l'article 
                  function get_post(){
         global $db;
-
+// requête pour récupérer une seul l'article
         $req = $db->query("
             SELECT  posts.id,
                     posts.title,
@@ -23,7 +23,7 @@
 
                                                 }
 
-
+// crée la fonction pour les commentaire 
                function comment($name,$email,$comment){
 
                 global $db;
@@ -34,7 +34,7 @@
                     'comment'   => $comment,
                     'post_id'   => $_GET["id"]
                 );
-
+                // la requête pour stocker le commentaoire au bdd 
                 $sql = "INSERT INTO comments(name,email,comment,post_id,date) VALUES(:name, :email, :comment, :post_id, NOW())";
                 $req = $db->prepare($sql);
                 $req->execute($c);

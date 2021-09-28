@@ -1,7 +1,7 @@
 <h2>Blog</h2>
 
 <?php
-
+// variable des articles $posts
 $posts = get_posts();
 foreach($posts as $post){
     ?>

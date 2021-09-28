@@ -5,7 +5,9 @@
                 header("Location:index.php?page=error");
             }else{
                 ?>
-                    </div>
+              
+                    </div> 
+                    <!-- affichage l'image de l'article -->
                 <div class="parallax-container">
                     <div class="parallax">
                         <img src="img/posts/<?= $post->image ?>" alt="<?= $post->title ?>"/>
@@ -36,6 +38,7 @@
 
                     <h4>Commenter:</h4>
                     <?php
+                    // envoyer le commentaire 
                         if(isset($_POST['submit'])){
                             $name = htmlspecialchars(trim($_POST['name']));
                             $email = htmlspecialchars(trim($_POST['email']));

@@ -43,7 +43,7 @@
         </div>
 
 
-        <!--Import jQuery before materialize.js-->
+        <!--Importer jQuery avant materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="js/materialize.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
