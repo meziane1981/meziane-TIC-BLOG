@@ -38,9 +38,10 @@
                 $sql = "INSERT INTO comments(name,email,comment,post_id,date) VALUES(:name, :email, :comment, :post_id, NOW())";
                 $req = $db->prepare($sql);
                 $req->execute($c);
-
                                                     }
 
+                                                    
+//fonction pour afficher les commentaire 
                 function get_comments(){
 
                 global $db;

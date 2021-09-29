@@ -1,6 +1,7 @@
 <?php
+//  la connection a la base de données 
 require ('../functions/main-functions.php');
-
+// récupérer les pages par la fonction "scandir qui permet de scanner les pages 
 $pages = scandir('pages/');
 if(isset($_GET['page']) && !empty($_GET['page'])){
     if(in_array($_GET['page'].'.php',$pages)){

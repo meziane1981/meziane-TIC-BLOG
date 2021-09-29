@@ -23,12 +23,16 @@
             <hr>   
                     <h4>Commentaires:</h4>
                     <?php
+                    //recupré est stocker en $responses
                 $responses = get_comments();
+                //afficher les commentaires 
                 if($responses != false){
                     foreach($responses as $response){
                         ?>
                             <blockquote>
+                                <!-- l'auteur de commantaire et la date  -->
                                 <strong><?= $response->name ?> (<?= date("d/m/Y", strtotime($response->date)) ?>)</strong>
+                                <!-- le contenu de commentaire -->
                                 <p><?= nl2br($response->comment); ?></p>
                             </blockquote>
                         <?php

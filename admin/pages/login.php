@@ -1,5 +1,7 @@
 <?php
+         // vérification qu'il na pas de session qui déja active 
     if(isset($_SESSION['admin'])){
+        // si il a un session on rediriger l'utilisateur vers la page dashboard
         header("Location: index.php?page=dashboard");
     }
 ?>
@@ -17,7 +19,7 @@
 
             <?php
             
-
+              // on récupére les données des inputs
                 if(isset($_POST['submit'])){
                     $email = htmlspecialchars(trim($_POST['email']));
                     $password = htmlspecialchars(trim($_POST['password']));

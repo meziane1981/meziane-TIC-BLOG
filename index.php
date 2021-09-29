@@ -1,5 +1,5 @@
 <?php
-// inclure la requête de la connection de base de données 
+//  la connection a la base de données 
     include 'functions/main-functions.php';
 // récupérer les pages par la fonction "scandir qui permet de scanner les pages 
     $pages = scandir('pages/');
