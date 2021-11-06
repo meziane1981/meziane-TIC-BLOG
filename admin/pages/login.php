@@ -21,7 +21,7 @@
             
               // on récupére les données des inputs
                 if(isset($_POST['submit'])){
-                    $email = htmlspecialchars(trim($_POST['email']));
+                    $email = htmlspecialchars(trim($_POST['email'],FILTER_VALIDATE_EMAIL));
                     $password = htmlspecialchars(trim($_POST['password']));
                     
                     $errors = [];
