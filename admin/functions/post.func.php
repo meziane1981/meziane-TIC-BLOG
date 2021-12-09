@@ -1,5 +1,5 @@
 <?php
-
+// fonction pour récupérer un seul poste
 function get_post(){
 
     global $db;

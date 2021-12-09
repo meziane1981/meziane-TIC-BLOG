@@ -5,7 +5,7 @@
             header("Location:index.php?page=dashboard");
         }
 
-//rediriger lutilisateur vers la page error en cas ya pas d'article
+//rediriger l'utilisateur vers la page error en cas ya pas d'article
         $post = get_post();
         if($post == false){
             header("Location:index.php?page=error");

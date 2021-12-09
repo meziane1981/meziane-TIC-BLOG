@@ -34,7 +34,7 @@
                     'comment'   => $comment,
                     'post_id'   => $_GET["id"]
                 );
-                // la requête pour stocker le commentaoire au bdd 
+                // la requête pour stocker le commentaire au bdd 
                 $sql = "INSERT INTO comments(name,email,comment,post_id,date) VALUES(:name, :email, :comment, :post_id, NOW())";
                 $req = $db->prepare($sql);
                 $req->execute($c);
@@ -45,6 +45,7 @@
                 function get_comments(){
 
                 global $db;
+                //la requête pour les commentaire d'un seul article
                 $req = $db->query("SELECT * FROM comments WHERE post_id = '{$_GET['id']}' ORDER BY date DESC");
                 $results = [];
                 while($rows = $req->fetchObject()){

@@ -21,7 +21,7 @@
             }
             ?>
             <hr>   
-                    <h4>Commentaires:</h4>
+                        <h4>Commentaires:</h4>
                     <?php
                     //recupré est stocker en $responses
                 $responses = get_comments();
@@ -48,10 +48,11 @@
                             $email = htmlspecialchars(trim($_POST['email']));
                             $comment = htmlspecialchars(trim($_POST['comment']));
                             $errors = [];
-
+                            // vérifier que les champ n'ont pas vide 
                             if(empty($name) || empty($email) || empty($comment)){
                                 $errors['empty'] = "Tous les champs n'ont pas été remplis";
                             }else{
+                                //vérifier s'est l'adresse email est valide 
                                 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                                     $errors['email'] = "L'adresse email n'est pas valide";
                                 }
@@ -69,6 +70,7 @@
                                     </div>
                                 <?php
                             }else{
+                                //fonction de commentaire 
                                 comment($name,$email,$comment);
                                 ?>
                                     <script>
