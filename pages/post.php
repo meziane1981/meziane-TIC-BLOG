@@ -37,7 +37,7 @@
                             </blockquote>
                         <?php
                     }
-                }else echo "Aucun commentaire n'a été publié... Soyez le premier!";
+                }else echo "Aucun commentaire n'a été publié";
             ?>
 
                     <h4>Commenter:</h4>

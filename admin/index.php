@@ -34,8 +34,9 @@ require ('./functions/'.$page.'.func.php');
 <body>
 
 <?php
-
+// vérifier que la page n'est pas login
 if($page != 'login' && $page != 'new' && !isset($_SESSION['admin'])){
+    // si c'est pas login je redirige l'user vers la page login
     header("Location:index.php?page=login");
 }
 

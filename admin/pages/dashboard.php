@@ -8,14 +8,14 @@
         <div class="row">
 
             <?php
-
+                     // analyse et récupérer les contenu des tables 
            $tables = [
                 "Publications"      =>  "posts",
                 "Commentaires"      =>  "comments",
                 "Administrateurs"   =>  "admins"
             ];
 
-
+               // pour changer la couleur de l'interface 
             $colors = [
                 "posts"     =>  "green",
                 "comments"  =>  "red",
@@ -30,9 +30,11 @@
                         ?>
             <div class="col l4 m6 s12">
                 <div class="card">
+                <!-- // fonction  pour la couleur de tables dans le dashbord -->
                         <div class="card-content <?=getColor($table,$colors)?> white-text">
                             <span class="card-title"><?= $table_name ?></span>
                             <?php $nbrInTable = inTable($table); ?>  
+                             <!-- fonction dashboard permetrre de récupérer le nombre d'entrées dans la table -->
                             <h4><?= $nbrInTable[0] ?></h4>
                         </div>
                 </div>
@@ -46,6 +48,7 @@
 
     <h4>Commentaires non lus</h4>
     <?php
+    // crée la variable $comments = fonction de recupe 
     $comments = get_comments();
     ?>
 
@@ -54,14 +57,16 @@
                 <tr>
                     <th>Article</th>
                     <th>Commentaire</th>
-                    <th>Actions</th>
+                    <th>Actions</th>  
                 </tr>
         </thead>
         <tbody>
              <?php
              if(!empty($comments)) {
+             // parcourir le tableau des commentaires     
             foreach($comments as $comment){
              ?>
+              <!-- afficher le contenu des articles -->
                 <tr id="commentaire_<?= $comment->id ?>">
                    <td><?= $comment->title ?></td>
                    <td><?= substr($comment->comment, 0, 100); ?>...</td>
@@ -75,6 +80,7 @@
                     <a href="#comment_<?= $comment->id ?>"
                            class="btn-floating btn-small waves-effect waves-light blue btn modal-trigger"><i
                                 class="material-icons">more_vert</i></a> 
+                                <!-- crée la boite modèle -->
                     <div class="modal" id="comment_<?= $comment->id ?>">
                          <div class="modal-content">   
                          <h4><?= $comment->title ?></h4>
@@ -86,6 +92,7 @@
                         <p><?= nl2br($comment->comment) ?></p>
 
                         </div>  
+                      
                         <div class="modal-footer">
                             <a href="#" id="<?= $comment->id ?>"
                                     class="modal-action modal-close waves-effect waves-red btn-flat delete_comment"><i

@@ -1,11 +1,11 @@
-<?php
+ <?php
          // vérification qu'il na pas de session qui déja active 
     if(isset($_SESSION['admin'])){
-        // si il a un session on rediriger l'utilisateur vers la page dashboard
+        // s'il a un session on rediriger l'utilisateur vers la page dashboard
         header("Location: index.php?page=dashboard");
     }
 ?>
-
+ 
 <div class="row">
     <div class="col l4 m6 s12 offset-l4 offset-m3">
         <div class="card-panel">
@@ -25,15 +25,19 @@
                     $password = htmlspecialchars(trim($_POST['password']));
                     
                     $errors = [];
+                    // verifier les variables sont vide
                     if(empty($email) || empty($password)){
+                        // c'est oui une erreur 
                         $errors['empty'] = "Tous les champs n'ont pas été remplis!";
-                        
+                       // c'est si pas vide en crée un fonction is_admin 
                     }else if (is_admin($email,$password) == 0){
+                        // c'est l'émail et password existe pas il ya une erreur
                         $errors['exist']  = "Cet administrateur n'existe pas";
                     }
-
+                         // dans le cas ou il ya des erreurs 
                     if(!empty($errors)){
                         ?>
+                        <!-- il ya des erreurs -->
                         <div class="card red">
                             <div class="card-content white-text">
                                 <?php
@@ -45,6 +49,7 @@
                         </div>
                         <?php
                     }else{
+                        // pas d'erreur
                         $_SESSION['admin'] = $email;
                         header("Location: index.php?page=dashboard");
                     }
