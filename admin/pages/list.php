@@ -8,7 +8,7 @@ if(admin()!=1){
 <h2>Listing des articles</h2>
 <hr/>
 <?php
-
+// stocker la fonction get_poste dans la variable $posts
 $posts = get_posts();
 foreach($posts as $post){
     ?>

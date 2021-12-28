@@ -62,6 +62,7 @@
         </thead>
         <tbody>
              <?php
+             // S'il ya des commentaire en affiche les foraech
              if(!empty($comments)) {
              // parcourir le tableau des commentaires     
             foreach($comments as $comment){
@@ -69,7 +70,7 @@
               <!-- afficher le contenu des articles -->
                 <tr id="commentaire_<?= $comment->id ?>">
                    <td><?= $comment->title ?></td>
-                   <td><?= substr($comment->comment, 0, 100); ?>...</td>
+                   <td><?= substr($comment->comment, 0, 70); ?>...</td>
                    <td>
                    <a href="#" id="<?= $comment->id ?>"
                            class="btn-floating btn-small waves-effect waves-light green see_comment"><i
@@ -92,7 +93,7 @@
                         <p><?= nl2br($comment->comment) ?></p>
 
                         </div>  
-                      
+                      <!-- footer de model -->
                         <div class="modal-footer">
                             <a href="#" id="<?= $comment->id ?>"
                                     class="modal-action modal-close waves-effect waves-red btn-flat delete_comment"><i

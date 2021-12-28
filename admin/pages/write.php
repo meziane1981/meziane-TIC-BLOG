@@ -9,26 +9,28 @@ if(admin()!=1){
 <?php
 
     if(isset($_POST['post'])){
+        // créé les variable de poster un article
         $title = htmlspecialchars(trim($_POST['title']));
         $content = htmlspecialchars(trim($_POST['content']));
         $posted = isset($_POST['public']) ? "1" : "0";
-
+         // tableur erreur pour envoyé les erreure 
         $errors = [];
-
+         // vérifier les champ 
         if(empty($title) || empty($content)){
+            //afficher les erreur
             $errors['empty'] = "Veuillez remplir tous les champs";
         }
-
+           // traitement des images 
         if(!empty($_FILES['image']['name'])){
             $file = $_FILES['image']['name'];
             $extensions = ['.png','.jpg','.jpeg','.gif','.PNG','.JPG','.JPEG','.GIF'];
             $extension = strrchr($file,'.');
-
+               //vérifier es ce que l'extension existe dans notre tableau
             if(!in_array($extension,$extensions)){
                 $errors['image'] = "Cette image n'est pas valable";
             }
         }
-
+                //afficher les erreur
         if(!empty($errors)){
             ?>
                 <div class="card red">
@@ -41,9 +43,13 @@ if(admin()!=1){
                     </div>
                 </div>
             <?php
+            //insérer dans la bdd
         }else{
+            // exéctué pour les article sans image
             post($title,$content,$posted);
+              // exéctué pour les article avec image
             if(!empty($_FILES['image']['name'])){
+                // fonction pour téléchegé l'image
                 post_img($_FILES['image']['tmp_name'], $extension);
             }else{
                 $id = $db->lastInsertId();
@@ -107,4 +113,3 @@ if(admin()!=1){
 
 
 </form>
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero odio nemo in necessitatibus laudantium dolor? Consectetur saepe nemo, ex reiciendis ducimus, perferendis voluptatibus dolor autem dicta facilis, accusantium quas magni.

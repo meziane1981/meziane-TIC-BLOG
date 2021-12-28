@@ -1,5 +1,5 @@
 <?php
-
+// fonction pour récupérer tt les articles 
 function get_posts(){
 
     global $db;

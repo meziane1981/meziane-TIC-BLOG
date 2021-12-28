@@ -20,7 +20,7 @@
 <div class="container">
 
     <?php
-
+     // pour modifier l'article
         if(isset($_POST['submit'])){
             $title = htmlspecialchars(trim($_POST['title']));
             $content = htmlspecialchars(trim($_POST['content']));
@@ -30,7 +30,7 @@
             if(empty($title) || empty($content)){
                 $errors['empty'] = "Veuillez remplir tous les champs";
             }
-
+              // afichage des erreurs 
             if(!empty($errors)){
                 ?>
                 <div class="card red">
@@ -43,6 +43,7 @@
                     </div>
                 </div>
                 <?php
+                // fonction edit pour modifier l'article
             }else{
                 edit($title,$content,$posted,$_GET['id']);
                 ?>
@@ -69,8 +70,7 @@
                 <textarea id="content" name="content" class="materialize-textarea"><?= $post->content ?></textarea>
                 <label for="content">Contenu de l'article</label>
             </div>
-
-            <div class="col s6">
+             <div class="col s6">
                 <p>Public</p>
                 <div class="switch">
                     <label>
