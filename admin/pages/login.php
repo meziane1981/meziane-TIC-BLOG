@@ -2,7 +2,7 @@
          // vérification qu'il na pas de session qui déja active 
     if(isset($_SESSION['admin'])){
         // s'il a un session on rediriger l'utilisateur vers la page dashboard
-        header("Location: index.php?page=dashboard");
+        header("Location:index.php?page=dashboard");
     }
 ?>
  
@@ -21,7 +21,7 @@
             
               // on récupére les données des inputs
                 if(isset($_POST['submit'])){
-                    $email = htmlspecialchars(trim($_POST['email'])); filter_var($mail, FILTER_VALIDATE_EMAIL);
+                    $email = htmlspecialchars(trim($_POST['email']));
                     $password = htmlspecialchars(trim($_POST['password']));
                     
                     $errors = [];
@@ -30,7 +30,7 @@
                         // c'est oui une erreur 
                         $errors['empty'] = "Tous les champs n'ont pas été remplis!";
                        // c'est si pas vide en crée un fonction is_admin 
-                    }else if (is_admin($email,$password) == 0){
+                    }else if (is_admin($email,$password) == 1){
                         // c'est l'émail et password existe pas il ya une erreur
                         $errors['exist']  = "Cet administrateur n'existe pas";
                     }
