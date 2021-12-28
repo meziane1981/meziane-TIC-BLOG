@@ -15,16 +15,17 @@
             </div>
             <h4 class="center-align">Se connecter</h4>
             <?php
-              
+              // vérifier que l'user clique bien sur le btn submit
                     if(isset($_POST['submit'])){
+                        //créé les variable $email $token
                         $email = htmlspecialchars(trim($_POST['email']));
                         $token = htmlspecialchars(trim($_POST['token']));
-
+                          // crée le tableau erreur s'il ya des erreure 
                         $errors = [];
-
+                         // vérifier si le champ sans pas vide 
                         if(empty($email) || empty($token)){
                             $errors['empty'] = "Tous les champs n'ont pas été remplis";
-
+                           // vérifier que le modo n'existe  pas
                         }else if(is_modo($email,$token) == 0){
                             $errors['exist'] = "Ce modérateur n'existe pas";
 
@@ -40,6 +41,7 @@
                                 </div>
                             </div>
                         <?php
+                        // la connection c'est modo existe 
                     }else{
                         $_SESSION['admin'] = $email;
                         header("Location:index.php?page=password");

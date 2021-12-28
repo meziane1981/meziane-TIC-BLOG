@@ -16,7 +16,7 @@
                         <li class="<?php echo ($page=="settings")?"active" : ""; ?>"><a href="index.php?page=settings"><i class="material-icons">settings</i></a></li>
 
                         <?php    
-                    }
+                    } 
                     ?>
                                
                     <li><a href="../index.php?page=home">Quitter</a></li>

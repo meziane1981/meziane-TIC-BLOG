@@ -15,15 +15,19 @@ if(hasnt_password() == 0){
            </div>
            <h4 class="centre-align">Choisir un mot de passe</h4>
            <?php
+           // vérifier le form est envoyé
                 if(isset($_POST['submit'])){
+                    $password_again = htmlspecialchars(trim($_POST['password_again']));
+                    //créé les variable $password  $password_again
                     $password = htmlspecialchars(trim($_POST['password']));
                     $password_again = htmlspecialchars(trim($_POST['password_again']));
 
                     $errors = [];
+                    //vérifier que les champs rempli
                     if(empty($password) || empty($password_again)){
                         $errors['empty'] = "Tous les champs n'ont pas été remplis";
                     }
-
+                       // les mots de pass sont différrents
                     if($password != $password_again){
                         $errors['different'] = "Les mots de passe sont différents";
                     }if(!empty($errors)){
@@ -39,6 +43,7 @@ if(hasnt_password() == 0){
                         </div>
                     <?php
                     }else{
+                        // fonction modifier le mots de passe 
                         update_password($password);
                         header("Location:index.php?page=dashboard");
                     }

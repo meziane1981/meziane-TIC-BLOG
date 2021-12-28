@@ -3,6 +3,6 @@ $(document).ready(function() {
     $('.sidenav').sidenav();
 
     $('.materialboxed').materialbox();
-
+    // select de modo et admin
     $('select').formSelect();
 });

@@ -70,7 +70,7 @@
               <!-- afficher le contenu des articles -->
                 <tr id="commentaire_<?= $comment->id ?>">
                    <td><?= $comment->title ?></td>
-                   <td><?= substr($comment->comment, 0, 70); ?>...</td>
+                   <td><?= substr($comment->comment, 0, 50); ?>...</td>
                    <td>
                    <a href="#" id="<?= $comment->id ?>"
                            class="btn-floating btn-small waves-effect waves-light green see_comment"><i

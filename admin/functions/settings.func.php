@@ -1,5 +1,5 @@
 <?php
-//requête  pour vérifier l'adresse émail
+//fonction  pour vérifier l'adresse émail
 function email_taken($email){
     global $db;
     $e = ['email'   =>  $email];
@@ -10,14 +10,14 @@ function email_taken($email){
 
     return $free;
 }
-
+// fonction token permettra de  générer un token aléatoire 
 function token($length){
     $chars = "azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN0123456789";
-    return substr(str_shuffle(str_repeat($chars,$length)),0,$length);
+    return substr(str_shuffle(str_repeat($chars,$length)),0,$length); //mélanger le token avec str_shuffle et str_repeat repeter la foction token le nombre de fois 
 }
 
 
-// requete pour ajoute le modo
+// fonction pour ajoute le modo
 function add_modo($name,$email,$role,$token){
     global $db;
 
@@ -27,11 +27,11 @@ function add_modo($name,$email,$role,$token){
         'token'     =>  $token,
         'role'      =>  $role
     ];
-
+    // requette pour insérer le modo au admin   
     $sql = "INSERT INTO admins(name,email,token,role) VALUES(:name,:email,:token,:role)";
     $req = $db->prepare($sql);
     $req->execute($m);
-
+// l'email quand va reçu on maildev
     $subject = "Modo sur le blog";
     $message = '
         <html lang="en" style="font-family: sans-serif;">
@@ -56,13 +56,13 @@ function add_modo($name,$email,$role,$token){
 
 }
 
-//requête pour récupérer l'ensemble des administrateurs et  modérateurs
+//fonction pour récupérer l'ensemble des administrateurs et  modérateurs
 function get_modos(){
     global $db;
     $req = $db->query("
         SELECT * FROM admins
     ");
-
+ // tableau qui récupère tt les résulta
     $results = [];
     while($rows = $req->fetchObject()){
         $results[] = $rows;

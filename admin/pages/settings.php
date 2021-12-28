@@ -1,4 +1,4 @@
-<!-- pour le modo pour ne pas acceder a des fonctionnelité de admin  -->
+ <!-- pour le modo pour ne pas acceder a des fonctionnelité de admin  -->
     <?php 
             if(admin()!=1){
                 header("Location:index.php?page=dashboard");
@@ -19,7 +19,9 @@
                     </thead>
                     <tbody>
                     <?php
+                    // crée la variable $modos
                         $modos = get_modos();
+                        
                         foreach($modos as $modo){
                             ?>
                                 <tr>
@@ -57,10 +59,11 @@
                 if($email != $email_again){
                     $errors['different'] = "Les adresses email ne correspondent pas";
                 }
-                        
+                     // si l'adresse déja assignée à un modé   
                 if(email_taken($email)){
                     $errors['taken'] = "L'adresse email est déjà assignée à un modérateur";
                 }
+                // afficher les érreur 
                 if(!empty($errors)){
                     ?>
                         <div class="card red">
@@ -78,7 +81,6 @@
                     add_modo($name,$email,$role,$token);
                 }
             }
-
 
         ?>
     

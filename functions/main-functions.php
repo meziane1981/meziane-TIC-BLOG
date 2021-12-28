@@ -29,7 +29,7 @@ function admin(){
             'email'     =>  $_SESSION['admin'],
             'role'      =>  'admin'
         ];
-        // requete 
+        // requette 
         $sql = "SELECT * FROM admins WHERE email=:email AND role=:role";
         $req = $db->prepare($sql);
         $req->execute($a);

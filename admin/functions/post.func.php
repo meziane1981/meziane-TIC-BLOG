@@ -34,7 +34,7 @@ function edit($title,$content,$posted,$id){
     
 
     ];
-
+// la requette de modification de l'article
     $sql = "UPDATE posts SET title=:title, content=:content, date=NOW(), posted=:posted WHERE id=:id";
     $req = $db->prepare($sql);
     $req->execute($e);
