@@ -30,7 +30,7 @@
                         // c'est oui une erreur 
                         $errors['empty'] = "Tous les champs n'ont pas été remplis!";
                        // c'est si pas vide en crée un fonction is_admin 
-                    }else if (is_admin($email,$password) == 1){
+                    }else if (is_admin($email,$password) == 0){
                         // c'est l'émail et password existe pas il ya une erreur
                         $errors['exist']  = "Cet administrateur n'existe pas";
                     }
