@@ -4,7 +4,7 @@
 
   //définir les variables de la base de donnée
     $dbhost = 'localhost';
-    $dbname = 'blogdevmeziane';
+    $dbname = 'blog';
     $dbuser = 'root';
     $dbpswd = '';
 
