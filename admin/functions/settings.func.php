@@ -50,7 +50,7 @@ function add_modo($name,$email,$role,$token){
 
     $header = "MIME-Version: 1.0\r\n";
     $header .= "Content-type: text/html; charset=UTF-8\r\n";
-    $header .= 'From: no-reply@nicwalle.com' . "\r\n" . 'Reply-To: meziane_maamar@yahoo.fr' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+    $header .= 'From: meziane_maamar@yahoo.fr' . "\r\n" . 'Reply-To: meziane_maamar@yahoo.fr' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
     mail($email,$subject,$message,$header);
 
